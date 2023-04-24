@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petites annonces</title>
+</head>
+<body>
+    
+    <script src="Js/Processors/connexion_manager.js"></script>
+    <script src="Js/Models/account.js"></script>
+    <script src="Js/Models/ad.js"></script>
+    <script src="Js/Models/price.js"></script>
+    <script src="Js/Processors/account_processor.js"></script>
+    <script src="Js/Processors/ad_processor.js"></script>
+    <script>
+
+        const account = new Account("davidlebg@gmail.com", 'Super');
+        
+        AdProcessor.getAsync()
+            .then((ads) => {
+                console.log(ads);
+            })
+            .catch((e) => {
+                console.log(e.message);
+            });
+
+        AccountProcessor.createAsync(account)
+            .then((token) => {
+                console.log(token);
+            })
+            .catch((e) => {
+                console.log(e.message);
+            });
+        
+    </script>
+</body>
+</html>
