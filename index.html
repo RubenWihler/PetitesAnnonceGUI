@@ -4,10 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/main.css">
+    <link rel="stylesheet" href="./Styles/home.css">
+    <script src="https://kit.fontawesome.com/1168815fe0.js" crossorigin="anonymous"></script>
     <title>Petites annonces</title>
 </head>
 <body>
-    
+    <div id="home" class="view">
+        <header>
+            <a href="#" class="link-button"><i class="fas fa-list"></i></a>
+            <div>
+                <span id="home-header-email">email@email.com</span>
+                <a class="link-button"><i class="fas fa-user"></i></a>
+            </div>
+        </header>
+
+        <main>
+            <section id="home-main-left-part">
+                <div id="additional-infos-container">
+
+                </div>
+
+                <button id="home-create-ad"><i class="fas fa-plus"></i></button>
+            </section>
+
+            <section id="ads-container">
+                <div class="ad-card">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                </div>
+                <div class="ad-card editable">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                    <a class="link-button"><i class="fas fa-pen"></i></a>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-card-text-container">
+                        <span>Titre</span>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                        </p>
+                    </div>
+                    
+                    <div class="ad-card-details">
+                        <span class="ad-card-email">email@email.com</span>
+                        <span class="ad-card-price">10 CHF</span>
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+
+    </div>
+
+
     <script src="Js/Processors/connexion_manager.js"></script>
     <script src="Js/Models/account.js"></script>
     <script src="Js/Models/ad.js"></script>
@@ -16,24 +122,68 @@
     <script src="Js/Processors/ad_processor.js"></script>
     <script>
 
-        const account = new Account("davidlebg@gmail.com", 'Super');
-        
-        AdProcessor.getAsync()
-            .then((ads) => {
-                console.log(ads);
-            })
-            .catch((e) => {
-                console.log(e.message);
-            });
 
-        AccountProcessor.createAsync(account)
-            .then((token) => {
-                console.log(token);
-            })
-            .catch((e) => {
-                console.log(e.message);
-            });
+        async function mainAsync(){
+            let token_account = '';
         
+            //Recupérer toutes les annonces
+            AdProcessor.getAsync()
+                .then((ads) => {
+                    console.log(ads);
+                })
+                .catch((e) => {
+                    console.log(e.message);
+                });
+                
+
+            // Créer un compte
+            const account = new Account("rubedndrf@gmail.com", 'Super');
+            
+            await AccountProcessor.createAsync(account)
+                .then((token) => {
+                    token_account = token;
+                })
+                .catch((e) => {
+                    console.log(e.message);
+                });
+
+
+            // Login    
+            await AccountProcessor.loginAsync(account)
+                .then((token) => {
+                    token_account = token;
+                    console.log(token);
+                })
+                .catch((e) => {
+                    console.log(e.message);
+                });
+
+            console.log(token_account);
+
+            // Logout 
+            AccountProcessor.logOutAsync('ce95e529aca314ba734acfdb75b6408c');
+                
+
+            //Créer une annonce
+            const to_create_ad = new Ad(
+                'Test',
+                'petite annonce pour voir si ca marche la team',
+                new Price(100, 'CHF')
+            );
+
+            await AdProcessor.createAsync(to_create_ad, token_account)
+                .then((ads) => {
+                    console.log(ads);
+                })
+                .catch((e) => {
+                    console.log(e.message);
+                });
+        }
+
+        // mainAsync();
+
+        
+
     </script>
 </body>
 </html>

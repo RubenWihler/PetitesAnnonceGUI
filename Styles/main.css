@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root{
+    --background-color: rgb(255, 255, 255);
+    --accent-color: rgb(87, 45, 255);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/*------------ Vues ------------*/
+.view{
+    width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+a.link-button{
+    cursor: pointer;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: solid var(--accent-color) 1px;
+    transition: all 0.2s;
+}
+a.link-button:hover{
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+button{
+    cursor: pointer;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: solid var(--accent-color) 1px;
+    transition: all 0.2s;
+}
+
+button:hover{
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
