@@ -9,4 +9,14 @@ class Ad{
         this.description = description;
         this.price = price;
     }
+
+    toJsonForCreate() : string{
+        const copy = {
+            title: this.title,
+            description: this.description,
+            price: this.price
+        }
+
+        return JSON.stringify(copy);
+    }
 }
