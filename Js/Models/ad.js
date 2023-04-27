@@ -3,6 +3,7 @@ class Ad {
     title;
     description;
     price;
+    editable;
     constructor(title, description, price) {
         this.title = title;
         this.description = description;

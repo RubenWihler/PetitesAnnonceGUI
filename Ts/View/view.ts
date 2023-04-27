@@ -9,8 +9,8 @@ class View{
     constructor(name:string, onEnable: Function = null, onDisable: Function = null){
         this.name = name;
         this.#element = document.querySelector(`#${name}`);
-        this.onEnable == onEnable !== null ? onEnable : () => {};
-        this.onDisable == onDisable !== null ? onDisable : () => {};
+        this.onEnable = onEnable !== null ? onEnable : () => {};
+        this.onDisable = onDisable !== null ? onDisable : () => {};
         this.isActive = false;
     }
 

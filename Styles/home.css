@@ -164,7 +164,7 @@ main{
     font-weight: 400;
 }
 
-.ad-card.editable>a{
+.ad-card.editable>button{
     margin-right: clamp(2px, 2%, 30px);
     height: 70%;
     min-width: 40px;
