@@ -6,7 +6,7 @@ class AdCardElement{
 
     constructor(ad: Ad, parent: HTMLElement, onEditClick: Function = null) {
         this.#ad = ad;
-        this.editable = ad.e;
+        this.editable = ad.editable;
         this.onEditClick = onEditClick !== null ? onEditClick : () => {};
         this.#generateHtmlElement(parent);
     }
@@ -21,13 +21,18 @@ class AdCardElement{
         const title = document.createElement('span');
         const description = document.createElement('p');
 
+        title.innerHTML = this.#ad.title;
+        description.innerHTML = this.#ad.description;
+
         const details_container = document.createElement('div');
         details_container.classList.add('ad-card-details');
 
         const email = document.createElement('span');
         email.classList.add('ad-card-email');
+
         const price = document.createElement('span');
         price.classList.add('ad-card-price');
+        price.innerHTML = this.#ad.price.amount + ' ' + this.#ad.price.currency;
 
         text_container.appendChild(title);
         text_container.appendChild(description);
@@ -45,5 +50,7 @@ class AdCardElement{
             edit_button.appendChild(icon);
             this.#element.appendChild(edit_button);
         }
+
+        parent.appendChild(this.#element);
     }
 }
