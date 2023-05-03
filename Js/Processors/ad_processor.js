@@ -1,10 +1,12 @@
 class AdProcessor {
     static async getAsync(token = '') {
-        var jsonResult;
-        var header = new Headers();
-        header.append("Authorization", `Token ${token}`);
-        const url = ConnexionManager.apiBaseUrl + 'ads/';
-        var requestOptions = {
+        let jsonResult;
+        let header = new Headers();
+        if (token.length > 0) {
+            header.append("Authorization", `Token ${token}`);
+        }
+        const url = ApiConnexionManager.apiBaseUrl + 'ads/';
+        let requestOptions = {
             method: 'GET',
             headers: header,
         };
@@ -19,11 +21,12 @@ class AdProcessor {
         })
             .then(result => jsonResult = result)
             .catch(error => { throw error; });
+        await new Promise(r => setTimeout(r, 1000));
         return JSON.parse(jsonResult);
     }
     static async createAsync(Ad, token) {
         let jsonResult;
-        const url = ConnexionManager.apiBaseUrl + 'ad/';
+        const url = ApiConnexionManager.apiBaseUrl + 'ad/';
         let header = new Headers();
         header.append("Authorization", 'Token ' + token);
         let requestOptions = {
