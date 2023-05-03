@@ -12,6 +12,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /*aspect-ratio: 900/900;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 8px;
+    background-image: url("../Ressources/Svg/1.svg");*/
 }
 
 /*------------ header ------------*/
@@ -23,6 +29,7 @@ body{
     width: 90%;
     height: 70px;
     display: flex;
+    background-color: var(--background-color);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -63,10 +70,8 @@ body{
 
 
 
-
 /*------------ main ------------*/
-
-main{
+#home>main{
     margin-top: 3%;
     width: 90%;
     height:80%;
@@ -84,6 +89,7 @@ main{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--background-color);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -99,14 +105,28 @@ main{
 }
 
 /*------------ ad cards ------------*/
-#ads-container{
+#home-main-right-part{
     height: 100%;
     width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    background-color: var(--background-color);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#home-ads-loading-icon{
+    position: absolute;
+    margin-top: 10%;
+}
+
+#ads-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ad-card{
@@ -118,6 +138,7 @@ main{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    background-color: var(--background-color);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -164,7 +185,7 @@ main{
     font-weight: 400;
 }
 
-.ad-card.editable>button{
+.ad-card>button{
     margin-right: clamp(2px, 2%, 30px);
     height: 70%;
     min-width: 40px;

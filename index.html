@@ -6,19 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Styles/main.css">
     <link rel="stylesheet" href="./Styles/home.css">
+    <link rel="stylesheet" href="./Styles/login.css">
+    <link rel="stylesheet" href="./Styles/signup.css">
+    <link rel="stylesheet" href="./Styles/loading_icon.css">
     <script src="https://kit.fontawesome.com/1168815fe0.js" crossorigin="anonymous"></script>
     <title>Petites annonces</title>
 </head>
 <body>
     <div id="home" class="view">
         <header>
-            <a href="#" class="link-button"><i class="fas fa-list"></i></a>
+            <a href="#" class="link-button"><i class="fas fa-redo-alt"></i></a>
             <div>
                 <span id="home-header-email">email@email.com</span>
-                <a class="link-button"><i class="fas fa-user"></i></a>
+                <a class="link-button" href="#login"><i class="fas fa-user"></i></a>
             </div>
         </header>
-
         <main>
             <section id="home-main-left-part">
                 <div id="additional-infos-container">
@@ -28,98 +30,146 @@
                 <button id="home-create-ad"><i class="fas fa-plus"></i></button>
             </section>
 
-            <section id="ads-container">
-                <div class="ad-card">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
+            <section id="home-main-right-part">
+                <svg id="home-ads-loading-icon"  viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="45"/>
+                </svg>
+                <div id="ads-container">
+                    <div class="ad-card">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
                     </div>
-                    
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
+                    <div class="ad-card editable">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
+                        <button><i class="fas fa-pen"></i></button>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
+                    </div>
+                    <div class="ad-card">
+                        <div class="ad-card-text-container">
+                            <span>Titre</span>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
+                            </p>
+                        </div>
+
+                        <div class="ad-card-details">
+                            <span class="ad-card-email">email@email.com</span>
+                            <span class="ad-card-price">10 CHF</span>
+                        </div>
                     </div>
                 </div>
-                <div class="ad-card editable">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
-                    </div>
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
-                    </div>
-                    <button><i class="fas fa-pen"></i></button>
-                </div>
-                <div class="ad-card">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
-                    </div>
-                    
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
-                    </div>
-                </div>
-                <div class="ad-card">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
-                    </div>
-                    
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
-                    </div>
-                </div>
-                <div class="ad-card">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
-                    </div>
-                    
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
-                    </div>
-                </div>
-                <div class="ad-card">
-                    <div class="ad-card-text-container">
-                        <span>Titre</span>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                        </p>
-                    </div>
-                    
-                    <div class="ad-card-details">
-                        <span class="ad-card-email">email@email.com</span>
-                        <span class="ad-card-price">10 CHF</span>
-                    </div>
-                </div>
+
             </section>
             
         </main>
+    </div>
+    <div id="login" class="view">
+        <div id="login-background" class="blob"></div>
+        <main>
+            <h1>Connexion</h1>
+            <div id="login-field-container">
+                <label for="login-email">address email</label>
+                <input type="email" placeholder="email@email.com" name="email" id="login-email">
 
+                <label for="login-password">mot de passe</label>
+                <input type="password" placeholder="password" name="password" id="login-password">
+            </div>
+            <div id="login-error-container">
+            </div>
+            <button id="login-submit">login</button>
+            <a href="#sign-up">créer un compte</a>
+            <a href="#home">retour</a>
+        </main>
+    </div>
+    <div id="sign-up" class="view">
+        <div id="signup-background" class="blob"></div>
+        <main>
+            <h1>Créer un compte</h1>
+            <div id="signup-field-container">
+                <label for="signup-email">address email</label>
+                <input type="email" placeholder="email@email.com" name="email" id="signup-email">
+
+                <label for="signup-password">mot de passe</label>
+                <input type="password" placeholder="password" name="password" id="signup-password">
+            </div>
+            <div id="signup-error-container">
+            </div>
+            <button id="signup-submit">Créer un compte</button>
+            <a href="#login">se connecter</a>
+            <a href="#home">retour</a>
+        </main>
     </div>
 
+    <script src="Js/Ui/ad_card_element.js"></script>
 
-    <script src="Js/Processors/connexion_manager.js"></script>
+    <script src="Js/Connexion/connexion_manager.js"></script>
+    <script src="Js/Processors/api_connexion_manager.js"></script>
     <script src="Js/Models/account.js"></script>
     <script src="Js/Models/ad.js"></script>
     <script src="Js/Models/price.js"></script>
     <script src="Js/Processors/account_processor.js"></script>
     <script src="Js/Processors/ad_processor.js"></script>
+    <script src="Js/View/view.js"></script>
+    <script src="Js/View/view_manager.js"></script>
+
+
+    <script src="Js/script.js"></script>
     <script>
 
 
