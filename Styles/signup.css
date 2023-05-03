@@ -1,0 +1,81 @@
+#sign-up{
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup-background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    aspect-ratio: 900/900;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 8px;
+    background-image: url("../Ressources/Svg/1.svg");
+    transform: scaleY(-1);
+    z-index: -1;
+}
+
+#sign-up>main{
+    max-width: 550px;
+    width: 70%;
+    height: 80%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#sign-up>main>h1{
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#signup-field-container{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#signup-field-container>label{
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 30%;
+    margin-bottom: 6%;
+}
+#signup-field-container>input{
+    border: none;
+    outline: none;
+    border-bottom: solid #575757 2px;
+    font-size: 1rem;
+}
+
+#signup-error-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 10%;
+}
+
+.signup-error{
+
+    color: #ff3636;
+}
+
+#signup-submit{
+    height: 40px;
+    width: 70%;
+    font-size: 1.15rem;
+    margin-bottom: 5%;
+}
