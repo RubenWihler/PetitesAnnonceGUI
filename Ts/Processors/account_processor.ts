@@ -1,8 +1,8 @@
 class AccountProcessor{
 
-    static async createAsync(account:Account) : Promise<number>{
+    static async createAsync(account:Account) : Promise<string>{
         let jsonResult;
-        const url = ConnexionManager.apiBaseUrl + 'user/';
+        const url = ApiConnexionManager.apiBaseUrl + 'user/';
         let raw = account.toJson();
         let requestOptions = {
           method: 'POST',
@@ -25,10 +25,10 @@ class AccountProcessor{
         return JSON.parse(jsonResult).token;
     }
 
-    static async loginAsync(account:Account) : Promise<number>{
+    static async loginAsync(account:Account) : Promise<string>{
 
         let jsonResult;
-        const url = ConnexionManager.apiBaseUrl + 'login/'
+        const url = ApiConnexionManager.apiBaseUrl + 'login/'
 
         let raw = account.toJson();
 
@@ -55,7 +55,7 @@ class AccountProcessor{
 
     static async logOutAsync(connectionToken:string){
 
-        let url = ConnexionManager.apiBaseUrl + 'logout/';
+        let url = ApiConnexionManager.apiBaseUrl + 'logout/';
 
         let myHeaders = new Headers();
         myHeaders.append("Authorization", "Token " + connectionToken);

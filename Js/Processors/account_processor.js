@@ -1,7 +1,7 @@
 class AccountProcessor {
     static async createAsync(account) {
         let jsonResult;
-        const url = ConnexionManager.apiBaseUrl + 'user/';
+        const url = ApiConnexionManager.apiBaseUrl + 'user/';
         let raw = account.toJson();
         let requestOptions = {
             method: 'POST',
@@ -22,7 +22,7 @@ class AccountProcessor {
     }
     static async loginAsync(account) {
         let jsonResult;
-        const url = ConnexionManager.apiBaseUrl + 'login/';
+        const url = ApiConnexionManager.apiBaseUrl + 'login/';
         let raw = account.toJson();
         let requestOptions = {
             method: 'POST',
@@ -42,7 +42,7 @@ class AccountProcessor {
         return JSON.parse(jsonResult).token;
     }
     static async logOutAsync(connectionToken) {
-        let url = ConnexionManager.apiBaseUrl + 'logout/';
+        let url = ApiConnexionManager.apiBaseUrl + 'logout/';
         let myHeaders = new Headers();
         myHeaders.append("Authorization", "Token " + connectionToken);
         let requestOptions = {
