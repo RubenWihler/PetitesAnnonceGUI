@@ -7,8 +7,8 @@ class View {
     constructor(name, onEnable = null, onDisable = null) {
         this.name = name;
         this.#element = document.querySelector(`#${name}`);
-        this.onEnable == onEnable !== null ? onEnable : () => { };
-        this.onDisable == onDisable !== null ? onDisable : () => { };
+        this.onEnable = onEnable !== null ? onEnable : () => { };
+        this.onDisable = onDisable !== null ? onDisable : () => { };
         this.isActive = false;
     }
     get isActive() {
