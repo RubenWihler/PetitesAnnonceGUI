@@ -35,8 +35,14 @@ class ViewManager {
             v.disable();
         });
         const url = location.href;
-        const index = url.lastIndexOf("#");
-        let clean_url = url.substring(0, index + 1);
+        let clean_url;
+        if (!url.includes("#")) {
+            clean_url = url + "#";
+        }
+        else {
+            const index = url.lastIndexOf("#");
+            clean_url = url.substring(0, index + 1);
+        }
         clean_url += name;
         window.location.href = clean_url;
         result.view.enable();

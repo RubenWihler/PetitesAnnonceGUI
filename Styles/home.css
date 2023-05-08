@@ -53,7 +53,7 @@ body{
     margin-right: clamp(10px, 3%, 25px);
 }
 
-#home>header>div>a{
+#home>header>div>button{
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
@@ -94,7 +94,18 @@ body{
 }
 
 #additional-infos-container{
-
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 100%;
+    align-items: center;
+}
+#additional-infos-container>div{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 80%;
+    color: rgb(55, 55, 55);
 }
 
 #home-create-ad{
@@ -102,6 +113,17 @@ body{
     width: 80%;
     height: 35px;
     font-size: 1.2rem;
+}
+
+#home-create-ad.disabled{
+    color: #909090;
+    border: solid #909090 1px;
+    cursor: default;
+}
+#home-create-ad.disabled:hover{
+    color: #909090;
+    border: solid #909090 1px;
+    background-color: var(--background-color);
 }
 
 /*------------ ad cards ------------*/

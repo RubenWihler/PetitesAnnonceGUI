@@ -11,6 +11,10 @@ class AdCardElement{
         this.#generateHtmlElement(parent);
     }
 
+    get ad(): Ad{
+        return this.#ad;
+    }
+
     #generateHtmlElement(parent: HTMLElement){
         this.#element = document.createElement('div');
         this.#element.classList.add('ad-card');

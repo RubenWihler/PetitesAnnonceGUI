@@ -43,8 +43,6 @@ class AdProcessor{
             body: Ad.toJsonForCreate()
         };
         
-        console.log(requestOptions);
-
         await fetch(url, requestOptions)
             .then((response) => {
                 if (!response.ok) {
@@ -61,12 +59,53 @@ class AdProcessor{
         return JSON.parse(jsonResult);
     }
 
-    static async modifyAsync() : Promise<number>{
+    static async modifyAsync(token : string, idAd : Number, ad : Ad){
 
-        return;
+        const url = ApiConnexionManager.apiBaseUrl + 'ad/' + idAd;
+        var header = new Headers();
+        header.append("Authorization", "Token " + token);
+
+        var raw = ad.toJsonForCreate();
+
+        var requestOptions = {
+            method: 'PUT',
+            headers: header,
+            body: raw
+        };
+
+        await fetch(url,requestOptions)
+            .then((response) => {
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        throw new Error(JSON.parse(text).message) 
+                   })
+                }
+                return response.text();
+            })
+            .catch((e) => {throw e});
+
     }
 
-    static async deleteAsync(){
+    static async deleteAsync(token : string, idAd : Number){
+        const url = ApiConnexionManager.apiBaseUrl + 'ad/' + idAd
+        var header = new Headers();
+        header.append("Authorization", 'Token ' + token);
 
+        var requestOptions = {
+            method: 'DELETE',
+            headers: header,
+        };
+
+        await fetch(url, requestOptions)
+        .then((response) => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    throw new Error(JSON.parse(text).message) 
+               })
+            }
+            
+            return response.text();
+        })
+        .catch(error => {throw error});
     }
 }

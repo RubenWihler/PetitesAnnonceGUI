@@ -9,6 +9,9 @@ class AdCardElement {
         this.onEditClick = onEditClick !== null ? onEditClick : () => { };
         this.#generateHtmlElement(parent);
     }
+    get ad() {
+        return this.#ad;
+    }
     #generateHtmlElement(parent) {
         this.#element = document.createElement('div');
         this.#element.classList.add('ad-card');

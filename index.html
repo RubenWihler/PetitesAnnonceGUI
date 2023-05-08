@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./Styles/home.css">
     <link rel="stylesheet" href="./Styles/login.css">
     <link rel="stylesheet" href="./Styles/signup.css">
+    <link rel="stylesheet" href="./Styles/create_ad.css">
+    <link rel="stylesheet" href="./Styles/modify_ad.css">
     <link rel="stylesheet" href="./Styles/loading_icon.css">
     <script src="https://kit.fontawesome.com/1168815fe0.js" crossorigin="anonymous"></script>
     <title>Petites annonces</title>
@@ -18,12 +20,18 @@
             <a href="#" class="link-button"><i class="fas fa-redo-alt"></i></a>
             <div>
                 <span id="home-header-email">email@email.com</span>
-                <a class="link-button" href="#login"><i class="fas fa-user"></i></a>
+                <button id="account-button"><i class="fas fa-user"></i></button>
             </div>
         </header>
         <main>
             <section id="home-main-left-part">
                 <div id="additional-infos-container">
+                    <!-- <h3>Informations</h3>
+
+                    <div>
+                        <span>Nombre d'annonces: </span>
+                        <span>Nombre d'annonces modifiables: </span>
+                    </div> -->
 
                 </div>
 
@@ -35,84 +43,7 @@
                     <circle cx="50" cy="50" r="45"/>
                 </svg>
                 <div id="ads-container">
-                    <div class="ad-card">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                    </div>
-                    <div class="ad-card editable">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                        <button><i class="fas fa-pen"></i></button>
-                    </div>
-                    <div class="ad-card">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                    </div>
-                    <div class="ad-card">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                    </div>
-                    <div class="ad-card">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                    </div>
-                    <div class="ad-card">
-                        <div class="ad-card-text-container">
-                            <span>Titre</span>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sunt reiciendis. At natus vitae facilis? Quod ex nemo nostrum iusto.
-                            </p>
-                        </div>
-
-                        <div class="ad-card-details">
-                            <span class="ad-card-email">email@email.com</span>
-                            <span class="ad-card-price">10 CHF</span>
-                        </div>
-                    </div>
+                    
                 </div>
 
             </section>
@@ -155,9 +86,67 @@
             <a href="#home">retour</a>
         </main>
     </div>
+    <div id="create-ad" class="view">
+        <div id="create-ad-background" class="blob"></div>
+        <main>
+            <h1>Créer une annonce</h1>
+            <div id="create-ad-field-container">
+                <label for="create-ad-title">titre</label>
+                <input type="email" placeholder="titre" name="titre" id="create-ad-title">
+
+                <label for="create-ad-desc">description</label>
+                <textarea name="create-ad-desc" id="create-ad-desc" cols="30" rows="6"></textarea>
+
+                <label>prix</label>
+                <div id="create-ad-price-container">
+                    <input type="number" min="0" name="price" id="create-ad-price">
+                    <select id="create-ad-currency">
+                        <option value="CHF" selected="select">CHF</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                </div>
+            </div>
+            <div id="create-ad-error-container">
+            </div>
+            <button id="create-ad-submit">Créer</button>
+            <a href="#home">retour</a>
+        </main>
+    </div>
+    <div id="modify-ad" class="view">
+        <div id="create-ad-background" class="blob"></div>
+        <main>
+            <h1>Modifier une annonce</h1>
+            <div id="modify-ad-field-container">
+                <label for="modify-ad-title">titre</label>
+                <input type="email" placeholder="titre" name="titre" id="modify-ad-title">
+
+                <label for="modify-ad-desc">description</label>
+                <textarea name="modify-ad-desc" id="modify-ad-desc" cols="30" rows="6"></textarea>
+
+                <label>prix</label>
+                <div id="modify-ad-price-container">
+                    <input type="number" min="0" name="price" id="modify-ad-price">
+                    <select id="modify-ad-currency" r>
+                        <option value="CHF">CHF</option>
+                        <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                </div>
+            </div>
+            <div id="modify-ad-error-container">
+            </div>
+            <button id="modify-ad-submit">Modifier</button>
+            <button id="modify-ad-delete-submit">Supprimer l'annonce</button>
+            <a href="#home">retour</a>
+        </main>
+    </div>
 
     <script src="Js/Ui/ad_card_element.js"></script>
 
+    <script src="Js/Processors/error_traductor.js"></script>
     <script src="Js/Connexion/connexion_manager.js"></script>
     <script src="Js/Processors/api_connexion_manager.js"></script>
     <script src="Js/Models/account.js"></script>

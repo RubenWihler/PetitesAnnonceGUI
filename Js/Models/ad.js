@@ -1,5 +1,5 @@
 class Ad {
-    id;
+    idAd;
     title;
     description;
     price;

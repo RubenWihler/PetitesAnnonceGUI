@@ -1,5 +1,5 @@
 class Ad{
-    id: number;
+    idAd: number;
     title: string;
     description: string;
     price: Price;

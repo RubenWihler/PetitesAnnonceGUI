@@ -1,0 +1,107 @@
+#modify-ad{
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#modify-ad-background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    aspect-ratio: 900/900;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 8px;
+    background-image: url("../Ressources/Svg/1.svg");
+    z-index: -1;
+}
+
+#modify-ad>main{
+    max-width: 750px;
+    width: 70%;
+    height: 80%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#modify-ad>main>h1{
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#modify-ad-field-container{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#modify-ad-field-container>label{
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 10%;
+    margin-bottom: 6%;
+}
+#modify-ad-field-container>input{
+    border: none;
+    outline: none;
+    border-bottom: solid #575757 2px;
+    font-size: 1rem;
+}
+
+#modify-ad-price-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}
+
+#modify-ad-desc{
+    resize: none;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+#modify-ad-price{
+    width: 70%;
+    height: 25px;
+}
+#modify-ad-currency{
+    width: 30%;
+    height: 30px;
+}
+
+.modify-ad-error{
+
+    color: #ff3636;
+}
+
+#modify-ad-submit{
+    height: 40px;
+    width: 70%;
+    font-size: 1.15rem;
+    margin-bottom: 5%;
+}
+#modify-ad-delete-submit{
+    height: 40px;
+    width: 70%;
+    font-size: 1.15rem;
+    margin-bottom: 5%;
+
+    color: #ff3636;
+    border: solid 1px #ff3636;
+}
+#modify-ad-delete-submit:hover{
+    color: var(--background-color);
+    background-color: #ff3636;
+    border: #ff3636;
+}

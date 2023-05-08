@@ -25,9 +25,14 @@ class ConnexionManager {
         ConnexionManager.instance.#email = email;
         ConnexionManager.instance.#token = token;
         ConnexionManager.instance.#connected = true;
-        console.log('connected');
         if (saveToLocalStorage)
             this.#saveToLocalStorage(email, token);
+    }
+    static disconnect() {
+        ConnexionManager.instance.#email = null;
+        ConnexionManager.instance.#token = null;
+        ConnexionManager.instance.#connected = false;
+        localStorage.removeItem('connection_token');
     }
     static tryLoginFromLocalStorage() {
         let result = this.#getFromLocalStorage();

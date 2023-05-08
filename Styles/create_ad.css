@@ -1,0 +1,93 @@
+#create-ad{
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-ad-background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    aspect-ratio: 900/600;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 8px;
+    background-image: url("../Ressources/Svg/background_create_ad.svg");
+    z-index: -1;
+}
+
+#create-ad>main{
+    max-width: 750px;
+    width: 70%;
+    height: 80%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+#create-ad>main>h1{
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+#create-ad-field-container{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+#create-ad-field-container>label{
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 20%;
+    margin-bottom: 6%;
+}
+#create-ad-field-container>input{
+    border: none;
+    outline: none;
+    border-bottom: solid #575757 2px;
+    font-size: 1rem;
+}
+
+#create-ad-price-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;    
+}
+
+#create-ad-desc{
+    resize: none;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+#create-ad-price{
+    width: 70%;
+    height: 25px;
+}
+#create-ad-currency{
+    width: 30%;
+    height: 30px;
+}
+
+.create-ad-error{
+
+    color: #ff3636;
+}
+
+#create-ad-submit{
+    height: 40px;
+    width: 70%;
+    font-size: 1.15rem;
+    margin-bottom: 5%;
+}
