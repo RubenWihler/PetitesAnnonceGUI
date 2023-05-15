@@ -1,5 +1,4 @@
 class AdProcessor{
-
     static async getAsync(token:string = '') : Promise<Ad[]> {
         let jsonResult;
         let header = new Headers();
@@ -27,10 +26,9 @@ class AdProcessor{
             .then(result => jsonResult = result)
             .catch(error => {throw error});
 
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 500));
         return JSON.parse(jsonResult);
     }
-
     static async createAsync(Ad: Ad, token:string) : Promise<number>{
         let jsonResult : string;
         const url = ApiConnexionManager.apiBaseUrl + 'ad/';
@@ -58,9 +56,7 @@ class AdProcessor{
 
         return JSON.parse(jsonResult);
     }
-
     static async modifyAsync(token : string, idAd : Number, ad : Ad){
-
         const url = ApiConnexionManager.apiBaseUrl + 'ad/' + idAd;
         var header = new Headers();
         header.append("Authorization", "Token " + token);
@@ -85,7 +81,6 @@ class AdProcessor{
             .catch((e) => {throw e});
 
     }
-
     static async deleteAsync(token : string, idAd : Number){
         const url = ApiConnexionManager.apiBaseUrl + 'ad/' + idAd
         var header = new Headers();

@@ -13,11 +13,11 @@ function initConnexion(){
 }
 function initViews(){
     let views = [
-        new View('home', onDisplayHome, () => {}),
-        new View('login', null, () => {}),
-        new View('sign-up', null, () => {}),
-        new View('create-ad', onDisplayCreateAd, () => {}),
-        new View('modify-ad', null, () => {}),
+        new View('home', onDisplayHome, null),
+        new View('login', onDisplayLogin, onHideLogin),
+        new View('sign-up', onDisplaySignUp, onHideSignUp),
+        new View('create-ad', onDisplayCreateAd, onHideCreateAd),
+        new View('modify-ad', onDisplayModify, onHideModify),
     ];
 
     let view_manager = new ViewManager(views);
@@ -36,8 +36,8 @@ function initListeners(){
 }
 
 
-
 /*------------ HOME ------------*/
+
 function onDisplayHome(){
     loadAds();
     displayHeaderEmail();
@@ -70,7 +70,6 @@ function onHomeAdEditClick(adCardElement : AdCardElement){
     let price_element : HTMLInputElement = document.querySelector('#modify-ad-price');
     let currency_element : HTMLSelectElement = document.querySelector('#modify-ad-currency');
     modifyCurrentAd = ad;
-    console.log(ad.idAd);
 
     title_element.value = ad.title;
     description_element.value = ad.description;
@@ -111,9 +110,14 @@ function displayCreateAdButton(){
         button.classList.remove('disabled');
     }
 }
-/*------------ LOGIN ------------*/
-function onDisplayLogin(){
 
+/*------------ LOGIN ------------*/
+
+function onDisplayLogin(){
+    clearLoginForm();
+}
+function onHideLogin(){
+    clearLoginForm();
 }
 async function submitLogin(){
     let email_element : HTMLInputElement =document.querySelector('#login-email');
@@ -143,6 +147,12 @@ async function submitLogin(){
     ConnexionManager.connect(email, result_token, true);
     ViewManager.setCurrentView('home');
 }
+function clearLoginForm(){
+    let email_element : HTMLInputElement =document.querySelector('#login-email');
+    let password_element : HTMLInputElement =document.querySelector('#login-password');
+    email_element.value = '';
+    password_element.value = '';
+}
 function clearLoginError(){
     let container = document.querySelector('#login-error-container');
     container.innerHTML = '';
@@ -156,9 +166,14 @@ function displayLoginError(error:string){
     container.appendChild(error_element);
 }
 
-/*------------ SIGN UP ------------*/
-function onDisplaySignUp(){
 
+/*------------ SIGN UP ------------*/
+
+function onDisplaySignUp(){
+    clearSignUpForm();
+}
+function onHideSignUp(){
+    clearSignUpForm();
 }
 async function submitSignUp(){
     let email_element : HTMLInputElement =document.querySelector('#signup-email');
@@ -188,6 +203,12 @@ async function submitSignUp(){
     ConnexionManager.connect(email, result_token, true);
     ViewManager.setCurrentView('home');
 }
+function clearSignUpForm(){
+    let email_element : HTMLInputElement =document.querySelector('#signup-email');
+    let password_element : HTMLInputElement =document.querySelector('#signup-password');
+    email_element.value = '';
+    password_element.value = '';
+}
 function clearSignUpError(){
     let container = document.querySelector('#signup-error-container');
     container.innerHTML = '';
@@ -201,6 +222,7 @@ function displaySignUpError(error:string){
     container.appendChild(error_element);
 }
 
+
 /* --------- CREATE AD --------- */
 
 function onDisplayCreateAd(){
@@ -208,7 +230,9 @@ function onDisplayCreateAd(){
         ViewManager.setCurrentView('home');
     }
 }
-
+function onHideCreateAd(){
+    clearCreateAdForm();
+}
 async function submitCreateAd(){
     let title_element : HTMLInputElement=document.querySelector('#create-ad-title');
     let title = title_element.value;
@@ -243,12 +267,21 @@ async function submitCreateAd(){
         return;
     }
 }
+function clearCreateAdForm(){
+    let title_element : HTMLInputElement=document.querySelector('#create-ad-title');
+    let description_element : HTMLInputElement=document.querySelector('#create-ad-desc');
+    let price_element : HTMLInputElement=document.querySelector('#create-ad-price');
+    let price_currency_element : HTMLSelectElement=document.querySelector('#create-ad-currency');
 
+    title_element.value = '';
+    description_element.value = '';
+    price_element.value = '';
+    price_currency_element.selectedIndex = 0;
+}
 function clearCreateAdError(){
     let container = document.querySelector('#create-ad-error-container');
     container.innerHTML = '';
 }
-
 function displayCreateAdError(error : string){
     let container = document.querySelector('#create-ad-error-container');
     let error_element = document.createElement('span');
@@ -258,6 +291,7 @@ function displayCreateAdError(error : string){
     container.appendChild(error_element);
 }
 
+
 /* --------- MODIFY --------- */
 
 function onDisplayModify(){
@@ -265,7 +299,9 @@ function onDisplayModify(){
         ViewManager.setCurrentView('login');
     }
 }
-
+function onHideModify(){
+    clearModifyForm();
+}
 function submitDeleteAd(){
     let token = ConnexionManager.token;
     let id = modifyCurrentAd.idAd;
@@ -283,7 +319,6 @@ function submitDeleteAd(){
         return;
     }
 }
-
 function submitModifyAd(){
     let title_element : HTMLInputElement=document.querySelector('#modify-ad-title');
     let title = title_element.value;
@@ -315,7 +350,17 @@ function submitModifyAd(){
         return;
     }
 }
+function clearModifyForm(){
+    let title_element : HTMLInputElement=document.querySelector('#modify-ad-title');
+    let description_element : HTMLInputElement=document.querySelector('#modify-ad-desc');
+    let price_element : HTMLInputElement=document.querySelector('#modify-ad-price');
+    let price_currency_element : HTMLSelectElement=document.querySelector('#modify-ad-currency');
 
+    title_element.value = '';
+    description_element.value = '';
+    price_element.value = '';
+    price_currency_element.selectedIndex = 0;
+}
 function displayModifyDeleteError(error : string){
     let container = document.querySelector('#modify-ad-error-container');
     let error_element = document.createElement('span');
@@ -324,11 +369,9 @@ function displayModifyDeleteError(error : string){
     error_element.innerHTML = error;
     container.appendChild(error_element);
 }
-
 function clearModifyDeleteError(){
     let container = document.querySelector('#modify-ad-error-container');
     container.innerHTML = '';
 }
 
 init();
-

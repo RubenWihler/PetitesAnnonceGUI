@@ -12,11 +12,11 @@ function initConnexion() {
 }
 function initViews() {
     let views = [
-        new View('home', onDisplayHome, () => { }),
-        new View('login', null, () => { }),
-        new View('sign-up', null, () => { }),
-        new View('create-ad', onDisplayCreateAd, () => { }),
-        new View('modify-ad', null, () => { }),
+        new View('home', onDisplayHome, null),
+        new View('login', onDisplayLogin, onHideLogin),
+        new View('sign-up', onDisplaySignUp, onHideSignUp),
+        new View('create-ad', onDisplayCreateAd, onHideCreateAd),
+        new View('modify-ad', onDisplayModify, onHideModify),
     ];
     let view_manager = new ViewManager(views);
     window.addEventListener('hashchange', ViewManager.onHashChange);
@@ -63,7 +63,6 @@ function onHomeAdEditClick(adCardElement) {
     let price_element = document.querySelector('#modify-ad-price');
     let currency_element = document.querySelector('#modify-ad-currency');
     modifyCurrentAd = ad;
-    console.log(ad.idAd);
     title_element.value = ad.title;
     description_element.value = ad.description;
     price_element.value = ad.price.amount.toString();
@@ -102,6 +101,10 @@ function displayCreateAdButton() {
 }
 /*------------ LOGIN ------------*/
 function onDisplayLogin() {
+    clearLoginForm();
+}
+function onHideLogin() {
+    clearLoginForm();
 }
 async function submitLogin() {
     let email_element = document.querySelector('#login-email');
@@ -128,6 +131,12 @@ async function submitLogin() {
     ConnexionManager.connect(email, result_token, true);
     ViewManager.setCurrentView('home');
 }
+function clearLoginForm() {
+    let email_element = document.querySelector('#login-email');
+    let password_element = document.querySelector('#login-password');
+    email_element.value = '';
+    password_element.value = '';
+}
 function clearLoginError() {
     let container = document.querySelector('#login-error-container');
     container.innerHTML = '';
@@ -142,6 +151,10 @@ function displayLoginError(error) {
 }
 /*------------ SIGN UP ------------*/
 function onDisplaySignUp() {
+    clearSignUpForm();
+}
+function onHideSignUp() {
+    clearSignUpForm();
 }
 async function submitSignUp() {
     let email_element = document.querySelector('#signup-email');
@@ -168,6 +181,12 @@ async function submitSignUp() {
     ConnexionManager.connect(email, result_token, true);
     ViewManager.setCurrentView('home');
 }
+function clearSignUpForm() {
+    let email_element = document.querySelector('#signup-email');
+    let password_element = document.querySelector('#signup-password');
+    email_element.value = '';
+    password_element.value = '';
+}
 function clearSignUpError() {
     let container = document.querySelector('#signup-error-container');
     container.innerHTML = '';
@@ -185,6 +204,9 @@ function onDisplayCreateAd() {
     if (!ConnexionManager.connected) {
         ViewManager.setCurrentView('home');
     }
+}
+function onHideCreateAd() {
+    clearCreateAdForm();
 }
 async function submitCreateAd() {
     let title_element = document.querySelector('#create-ad-title');
@@ -216,6 +238,16 @@ async function submitCreateAd() {
         return;
     }
 }
+function clearCreateAdForm() {
+    let title_element = document.querySelector('#create-ad-title');
+    let description_element = document.querySelector('#create-ad-desc');
+    let price_element = document.querySelector('#create-ad-price');
+    let price_currency_element = document.querySelector('#create-ad-currency');
+    title_element.value = '';
+    description_element.value = '';
+    price_element.value = '';
+    price_currency_element.selectedIndex = 0;
+}
 function clearCreateAdError() {
     let container = document.querySelector('#create-ad-error-container');
     container.innerHTML = '';
@@ -233,6 +265,9 @@ function onDisplayModify() {
     if (!ConnexionManager.connected) {
         ViewManager.setCurrentView('login');
     }
+}
+function onHideModify() {
+    clearModifyForm();
 }
 function submitDeleteAd() {
     let token = ConnexionManager.token;
@@ -277,6 +312,16 @@ function submitModifyAd() {
     catch (e) {
         return;
     }
+}
+function clearModifyForm() {
+    let title_element = document.querySelector('#modify-ad-title');
+    let description_element = document.querySelector('#modify-ad-desc');
+    let price_element = document.querySelector('#modify-ad-price');
+    let price_currency_element = document.querySelector('#modify-ad-currency');
+    title_element.value = '';
+    description_element.value = '';
+    price_element.value = '';
+    price_currency_element.selectedIndex = 0;
 }
 function displayModifyDeleteError(error) {
     let container = document.querySelector('#modify-ad-error-container');

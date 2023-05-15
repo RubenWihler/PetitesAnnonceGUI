@@ -17,7 +17,6 @@ class View{
     get isActive(): boolean{
         return this.#isActive;
     }
-
     set isActive(value: boolean){
         if (value === this.#isActive) return;
         this.#isActive = value;
@@ -29,7 +28,6 @@ class View{
         this.isActive = true;
         this.onEnable(this);
     }
-
     disable(){
         if (!this.#isActive) return;
         this.isActive = false;

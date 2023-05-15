@@ -10,7 +10,7 @@ class AdCardElement{
         this.onEditClick = onEditClick !== null ? onEditClick : () => {};
         this.#generateHtmlElement(parent);
     }
-
+    
     get ad(): Ad{
         return this.#ad;
     }

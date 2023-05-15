@@ -1,5 +1,4 @@
 class AccountProcessor{
-
     static async createAsync(account:Account) : Promise<string>{
         let jsonResult;
         const url = ApiConnexionManager.apiBaseUrl + 'user/';
@@ -24,7 +23,6 @@ class AccountProcessor{
 
         return JSON.parse(jsonResult).token;
     }
-
     static async loginAsync(account:Account) : Promise<string>{
 
         let jsonResult;
@@ -52,7 +50,6 @@ class AccountProcessor{
 
         return JSON.parse(jsonResult).token;
     }
-
     static async logOutAsync(connectionToken:string){
 
         let url = ApiConnexionManager.apiBaseUrl + 'logout/';

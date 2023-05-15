@@ -26,15 +26,7 @@
         <main>
             <section id="home-main-left-part">
                 <div id="additional-infos-container">
-                    <!-- <h3>Informations</h3>
-
-                    <div>
-                        <span>Nombre d'annonces: </span>
-                        <span>Nombre d'annonces modifiables: </span>
-                    </div> -->
-
                 </div>
-
                 <button id="home-create-ad"><i class="fas fa-plus"></i></button>
             </section>
 
@@ -145,7 +137,6 @@
     </div>
 
     <script src="Js/Ui/ad_card_element.js"></script>
-
     <script src="Js/Processors/error_traductor.js"></script>
     <script src="Js/Connexion/connexion_manager.js"></script>
     <script src="Js/Processors/api_connexion_manager.js"></script>
@@ -156,73 +147,6 @@
     <script src="Js/Processors/ad_processor.js"></script>
     <script src="Js/View/view.js"></script>
     <script src="Js/View/view_manager.js"></script>
-
-
     <script src="Js/script.js"></script>
-    <script>
-
-
-        async function mainAsync(){
-            let token_account = '';
-        
-            //Recupérer toutes les annonces
-            AdProcessor.getAsync()
-                .then((ads) => {
-                    console.log(ads);
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                });
-                
-
-            // Créer un compte
-            const account = new Account("rubedndrf@gmail.com", 'Super');
-            
-            await AccountProcessor.createAsync(account)
-                .then((token) => {
-                    token_account = token;
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                });
-
-
-            // Login    
-            await AccountProcessor.loginAsync(account)
-                .then((token) => {
-                    token_account = token;
-                    console.log(token);
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                });
-
-            console.log(token_account);
-
-            // Logout 
-            AccountProcessor.logOutAsync('ce95e529aca314ba734acfdb75b6408c');
-                
-
-            //Créer une annonce
-            const to_create_ad = new Ad(
-                'Test',
-                'petite annonce pour voir si ca marche la team',
-                new Price(100, 'CHF')
-            );
-
-            await AdProcessor.createAsync(to_create_ad, token_account)
-                .then((ads) => {
-                    console.log(ads);
-                })
-                .catch((e) => {
-                    console.log(e.message);
-                });
-        }
-
-        // mainAsync();
-
-        
-
-    </script>
 </body>
 </html>

@@ -4,7 +4,6 @@ class ConnexionManager{
     #token : string = null;
     #email: string = null;
 
-
     constructor() {
         ConnexionManager.#instance = this;
     }
@@ -54,7 +53,6 @@ class ConnexionManager{
 
         localStorage.setItem('connection_token', JSON.stringify(object));
     }
-
     static #getFromLocalStorage() : any{
         let result = localStorage.getItem('connection_token');
         if (result === null) return {founded:false, result: null};

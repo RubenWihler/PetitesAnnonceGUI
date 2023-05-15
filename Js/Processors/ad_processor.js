@@ -21,7 +21,7 @@ class AdProcessor {
         })
             .then(result => jsonResult = result)
             .catch(error => { throw error; });
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 500));
         return JSON.parse(jsonResult);
     }
     static async createAsync(Ad, token) {
