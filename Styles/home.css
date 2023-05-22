@@ -12,12 +12,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*aspect-ratio: 900/900;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding-bottom: 8px;
-    background-image: url("../Ressources/Svg/1.svg");*/
 }
 
 /*------------ header ------------*/
@@ -155,7 +149,7 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
     width: 80%;
-    height: 100px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     align-items: center;

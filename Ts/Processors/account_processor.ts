@@ -51,7 +51,6 @@ class AccountProcessor{
         return JSON.parse(jsonResult).token;
     }
     static async logOutAsync(connectionToken:string){
-
         let url = ApiConnexionManager.apiBaseUrl + 'logout/';
 
         let myHeaders = new Headers();
@@ -66,13 +65,12 @@ class AccountProcessor{
           .then((response) => {
             if (!response.ok) {
                 return response.text().then(text => {
-                     throw new Error(JSON.parse(text).message) 
+                    throw new Error(text);
                 })
             }
             
             return response.text();
           })
-          .then(result => console.log(JSON.parse(result)))
           .catch(error => {throw error});
     }
 }

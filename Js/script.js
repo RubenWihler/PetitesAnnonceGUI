@@ -9,6 +9,8 @@ function init() {
 function initConnexion() {
     ConnexionManager.tryLoginFromLocalStorage();
     displayHeaderEmail();
+    if (ConnexionManager.connected) {
+    }
 }
 function initViews() {
     let views = [
@@ -16,7 +18,7 @@ function initViews() {
         new View('login', onDisplayLogin, onHideLogin),
         new View('sign-up', onDisplaySignUp, onHideSignUp),
         new View('create-ad', onDisplayCreateAd, onHideCreateAd),
-        new View('modify-ad', onDisplayModify, onHideModify),
+        new View('modify-ad', onDisplayModify, null),
     ];
     let view_manager = new ViewManager(views);
     window.addEventListener('hashchange', ViewManager.onHashChange);
@@ -75,9 +77,9 @@ function displayHeaderEmail() {
 }
 function displayAccountButton() {
     let element = document.querySelector('#account-button');
-    element.onclick = () => {
+    element.onclick = async () => {
         if (ConnexionManager.connected) {
-            ConnexionManager.disconnect();
+            await logout();
             ViewManager.setCurrentView('home');
         }
         else {
@@ -98,6 +100,10 @@ function displayCreateAdButton() {
     else {
         button.classList.remove('disabled');
     }
+}
+async function logout() {
+    await AccountProcessor.logOutAsync(ConnexionManager.token);
+    ConnexionManager.disconnect();
 }
 /*------------ LOGIN ------------*/
 function onDisplayLogin() {

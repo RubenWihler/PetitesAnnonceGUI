@@ -10,6 +10,9 @@ function init(){
 function initConnexion(){
     ConnexionManager.tryLoginFromLocalStorage();
     displayHeaderEmail();
+    if (ConnexionManager.connected){
+        
+    }
 }
 function initViews(){
     let views = [
@@ -17,7 +20,7 @@ function initViews(){
         new View('login', onDisplayLogin, onHideLogin),
         new View('sign-up', onDisplaySignUp, onHideSignUp),
         new View('create-ad', onDisplayCreateAd, onHideCreateAd),
-        new View('modify-ad', onDisplayModify, onHideModify),
+        new View('modify-ad', onDisplayModify, null),
     ];
 
     let view_manager = new ViewManager(views);
@@ -75,7 +78,7 @@ function onHomeAdEditClick(adCardElement : AdCardElement){
     description_element.value = ad.description;
     price_element.value = ad.price.amount.toString();
     currency_element.value = ad.price.currency;
-
+    
     ViewManager.setCurrentView('modify-ad');
 }
 function displayHeaderEmail(){
@@ -84,9 +87,9 @@ function displayHeaderEmail(){
 }
 function displayAccountButton(){
     let element : HTMLSpanElement = document.querySelector('#account-button');
-    element.onclick = () => {
+    element.onclick = async () => {
         if (ConnexionManager.connected){
-            ConnexionManager.disconnect();
+            await logout();
             ViewManager.setCurrentView('home');
         }
         else{
@@ -109,6 +112,10 @@ function displayCreateAdButton(){
     else{
         button.classList.remove('disabled');
     }
+}
+async function logout(){
+    await AccountProcessor.logOutAsync(ConnexionManager.token);
+    ConnexionManager.disconnect();
 }
 
 /*------------ LOGIN ------------*/

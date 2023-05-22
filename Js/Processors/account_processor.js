@@ -53,12 +53,11 @@ class AccountProcessor {
             .then((response) => {
             if (!response.ok) {
                 return response.text().then(text => {
-                    throw new Error(JSON.parse(text).message);
+                    throw new Error(text);
                 });
             }
             return response.text();
         })
-            .then(result => console.log(JSON.parse(result)))
             .catch(error => { throw error; });
     }
 }
