@@ -9,8 +9,6 @@ function init() {
 function initConnexion() {
     ConnexionManager.tryLoginFromLocalStorage();
     displayHeaderEmail();
-    if (ConnexionManager.connected) {
-    }
 }
 function initViews() {
     let views = [
@@ -271,9 +269,6 @@ function onDisplayModify() {
     if (!ConnexionManager.connected) {
         ViewManager.setCurrentView('login');
     }
-}
-function onHideModify() {
-    clearModifyForm();
 }
 function submitDeleteAd() {
     let token = ConnexionManager.token;
